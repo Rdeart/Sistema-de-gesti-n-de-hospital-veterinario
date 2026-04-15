@@ -1,4 +1,11 @@
-[README.md](https://github.com/user-attachments/files/26759856/README.md)
+# Proyecto realizado por: 
+(Nombre y Link a GitHub del proyecto)
+
+- Adriana Ximena Guzman Rojas - https://github.com/Xime182026/Proyecto-tienda-veterinaria.git
+- Carolina Gil - https://github.com/dcelcirculo/M1PF-HospitalVeterinario.git
+- Roberto Deart Pérez - https://github.com/Rdeart/Sistema-de-gesti-n-de-hospital-veterinario
+- Juan Carlos Corrales Ramírez
+
 # Sistema de Gestión de Hospital Veterinario
 
 ## Descripción
