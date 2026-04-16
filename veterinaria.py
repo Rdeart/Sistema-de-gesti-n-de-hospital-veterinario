@@ -110,13 +110,14 @@ class PagoTransferencia(MetodoPago):
         print(f"Procesando pago por transferencia... ${monto:.2f} recibido.")    
 
 class Factura:
-    def __init__(self, consulta, subtotal, impuesto=0.19, total=0):
+    def __init__(self, consulta, subtotal=0, impuesto=0.19, total=0):
         self.consulta = consulta
         self.subtotal = subtotal
         self.impuesto = impuesto
         self.total = total
         
     def calcular_total(self):
+        self.subtotal = self.consulta.calcular_costo_consulta()
         self.total = self.subtotal + (self.subtotal * self.impuesto)
         return self.total
     
@@ -184,19 +185,19 @@ if __name__ == "__main__":
     
     print("---- FACTURAS ----")
     print("* Factura para el perro:")
-    factura_perro = Factura(consulta_perro, consulta_perro.calcular_costo_consulta(), 0, 0)
+    factura_perro = Factura(consulta_perro)
     print(f"Total a pagar: ${factura_perro.calcular_total()}")
     factura_perro.pagar(PagoEfectivo())
     print(" ")
     
     print("* Factura para el gato:")
-    factura_gato = Factura(consulta_gato, consulta_gato.calcular_costo_consulta(), 0, 0)
+    factura_gato = Factura(consulta_gato)
     print(f"Total a pagar: ${factura_gato.calcular_total()}")
     factura_gato.pagar(PagoTarjeta())
     print(" ")
     
     print("* Factura para el pájaro:")
-    factura_pajaro = Factura(consulta_pajaro, consulta_pajaro.calcular_costo_consulta(), 0, 0)
+    factura_pajaro = Factura(consulta_pajaro)
     print(f"Total a pagar: ${factura_pajaro.calcular_total()}")
     factura_pajaro.pagar(PagoTransferencia())
     
